@@ -110,7 +110,7 @@ void sigsegv_cb(struct ev_loop *loop, struct ev_signal *w, int revents)
 void sigsegv_backtrace_cb(int sig)
 {
 #ifdef HAVE_EXECINFO_H
-#define BACKTRACE_SIZE 32
+#define BACKTRACE_SIZE 1000
 	void *back[BACKTRACE_SIZE];
 	size_t size;
 
