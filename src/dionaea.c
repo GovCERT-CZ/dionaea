@@ -747,7 +747,7 @@ opt->stdOUT.filter);
 	d->threads = g_malloc0(sizeof(struct threads));
 
 	// cmd queue
-	d->threads->cmds = g_async_queue_new();
+	d->threads->cmds = g_async_queue_new_full((GDestroyNotify)async_cmd_free);
 	ev_async_init(&d->threads->trigger, trigger_cb);
 	ev_async_start(d->loop, &d->threads->trigger);
 
